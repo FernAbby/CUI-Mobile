@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/scss/actions.scss?__inline" media="screen" title="no-title" charset="utf-8">
+</head>
+<body>
+<div class="a_actions" style="font-size:0.7rem;margin-top:1rem;text-align:center;">
+    选择操作表1
+</div>
+<div class="a_actions1" style="font-size:0.7rem;margin-top:1rem;text-align:center;">
+    选择操作表2
+</div>
+<div class="a_actions2" style="font-size:0.7rem;margin-top:1rem;text-align:center;">
+    选择操作表3
+</div>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        recalc();
+        document.body.style.visibility = 'visible';
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script src="/lib/zepto.min.js"></script>
+<script src="/js/actions.js"></script>
+<script>
+    var actions = $.actions({
+        pick: '.a_actions',
+        items: ['<a href="tel:4008003351">境内客服&nbsp;&nbsp;400&nbsp;800&nbsp;3351</a>','<a href="tel:0869186666">泰国客服&nbsp;&nbsp;086&nbsp;918&nbsp;6666</a>'],
+    });
+    var actions1 = $.actions({
+        pick: '.a_actions1',
+    });
+    var actions3 = $.actions({
+        pick: '.a_actions2',
+        title:'请选择'
+    });
+</script>
+</body>
+</html>

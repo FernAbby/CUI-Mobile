@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>简途旅行</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/scss/popup.scss?__inline" media="screen" title="no-title" charset="utf-8">
+</head>
+<body>
+<div class="a_ctype" style="font-size:0.7rem;margin-top:1rem;text-align:center;">
+    打开ctype popup
+</div>
+<div class="a_ttype" style="font-size:0.7rem;margin-top:1rem;text-align:center;">
+    打开ttype popup
+</div>
+<div class="a_btype" style="font-size:0.7rem;margin-top:1rem;text-align:center;">
+    打开btype popup
+</div>
+<div class="a_stype" style="font-size:0.7rem;margin-top:1rem;text-align:center;">
+    打开stype popup
+</div>
+<div class="popup-modal-wrap">
+    <div class="popup-overlay"></div>
+    <div class="popup-modal ctype">
+        <div class="modal-content">
+            <div class="header">旅客1</div>
+            <div class="content">
+                <ul>
+                    <li>
+                        <span class="label">姓名</span><span class="value">文珍</span>
+                    </li>
+                    <li><span class="label">手机号</span><span class="value">18202810520</span></li>
+                    <li><span class="label">身份证</span><span class="value">511304199212052149</span></li>
+                </ul>
+            </div>
+            <div class="close">取消</div>
+        </div>
+    </div>
+</div>
+<div class="popup-modal-wrap">
+    <div class="popup-overlay"></div>
+    <div class="popup-modal ttype">
+        <div class="modal-content">
+            <div class="header">旅客1</div>
+            <div class="content">
+                该出行人年龄超过60岁，请确认出行人有无可能威胁自身生命或引起严重后果的疾病，权衡是否出行，由此引发的一切后果，由出行人本人及家属自行承担。
+            </div>
+            <div class="close">取消</div>
+        </div>
+    </div>
+</div>
+<div class="popup-modal-wrap btype">
+    <div class="popup-overlay"></div>
+    <div class="popup-modal btype">
+        <div class="modal-content">
+            <div class="header">旅客1</div>
+            <div class="content">
+                <div class="item">
+                    <div class="item-up">
+                        <div class="row">
+                            <span class="label">商品单价</span>
+                            <span class="value">¥18</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">商品数量</span>
+                            <span class="value">1</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">商品总额</span>
+                            <span class="value">¥18</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">优惠金额</span>
+                            <span class="value">¥0</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">支付方式</span>
+                            <span class="value">支付宝</span>
+                        </div>
+                    </div>
+                    <div class="item-down">
+                        <div class="row">
+                            <span class="label">订单金额</span>
+                            <span class="value">¥80930</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">订单金额</span>
+                            <span class="value">¥80930</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-up">
+                        <div class="row">
+                            <span class="label">商品单价</span>
+                            <span class="value">¥18</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">商品数量</span>
+                            <span class="value">1</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">商品总额</span>
+                            <span class="value">¥18</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">优惠金额</span>
+                            <span class="value">¥0</span>
+                        </div>
+                        <div class="row">
+                            <span class="label">支付方式</span>
+                            <span class="value">支付宝</span>
+                        </div>
+                    </div>
+                    <div class="item-down">
+                        <div class="row">
+                            <span class="label">订单金额</span>
+                            <span class="value">¥80930</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="close">取消</div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var style;
+                    if (style = document.getElementById("forhtml")) {
+                        style.parentNode.removeChild(style);
+                    }
+                    style = document.createElement("style");
+                    style.id = "forhtml";
+                    document.head.appendChild(style);
+                    style.appendChild(document.createTextNode("html{font-size:" + 20 * (clientWidth / 320) + "px !important;}"));
+                    docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        recalc();
+        document.body.style.visibility = 'visible';
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script src="/lib/zepto.min.js"></script>
+<script src="/js/popup.js"></script>
+<script>
+    var c_popup = $.popup({
+        title: '旅客1',
+        type: 'ctype',
+        pick: $('.a_ctype'),
+        content: {name:'文珍',lastName:'',firstName:'',mobile:'18202810520',idType:'身份证',idNo:'511304199212052149'},
+        cancelFun: function () {
+        }
+    });
+    var t_popup = $.popup({
+        title: '温馨提示',
+        type: 'ttype',
+        pick: $('.a_ttype'),
+        content: ['该出行人年龄超过60岁，请确认出行人有无可能威胁自身生命或引起严重后果的疾病，权衡是否出行，由此引发的一切后果，由出行人本人及家属自行承担。'],
+        cancelFun: function () {
+        }
+    });
+    var s_popup = $.popup({
+        title: '温馨提示',
+        type: 'ttype',
+        pick: $('.a_stype'),
+        content: ['该出行人年龄超过60岁，请确认出行人有无可能威胁自身生命或引起严重后果的疾病，权衡是否出行，由此引发的一切后果，由出行人本人及家属自行承担。'],
+        cancelFun: function () {
+        }
+    });
+
+    $('.a_btype').click(function (e) {
+        var $wrap = $('.popup-modal-wrap.btype');
+        $wrap.show();
+        $wrap[0].clientLeft;
+        $wrap.find('.popup-modal.btype').addClass('show');
+        $wrap.find('.popup-overlay').addClass('visible');
+    });
+    $('.popup-modal .modal-content .close').click(function(){
+        $(this).parents('.popup-modal').removeClass('show');
+        $('.popup-overlay').removeClass('visible');
+        setTimeout(function () {
+            $('.popup-modal-wrap.btype').hide();
+        }, 400);
+    });
+
+</script>
+</body>
+</html>
